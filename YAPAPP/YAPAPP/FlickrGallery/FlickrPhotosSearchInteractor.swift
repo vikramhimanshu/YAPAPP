@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-//The Interactor is a mediator between the presenter and the data. Interactor could have the cache component or deals with other networking aspects of the module. It would not have any business logic or data transformations (parsing is not transformation) - it basically dances to the tunes of the Presenter.
+//The Interactor is a mediator between the presenter and the data. Interactor could have the cache component or deals with other networking aspects of the module and it largely dances to the tunes of the Presenter.
 class FlickrPhotosSearchInteractor {
     private var searchResult: FlickrPhotosSearchRoot?
     private var searchResultMetadata: FlickrPhotosSearchResult? {
