@@ -32,3 +32,24 @@ class YAPAPPTests: XCTestCase {
     }
 
 }
+
+class EndPointTest: XCTestCase {
+    private var endpoint: FlickrEndpoint!
+    
+    override func setUp() {
+        endpoint = FlickrEndpoint(queryItems: [URLQueryItem(name: "method", value: "some.value") ])
+    }
+    
+    func testIfThereIsEmptySearchTextInEndpoint() {
+        endpoint = FlickrEndpoint.photosSearch(withText: "", page: 1)
+        
+        let queryItems = endpoint.queryItems.contains { queryItem -> Bool in
+            if let queryValue = queryItem.value {
+                return (queryItem.name == "text") && !queryValue.isEmpty
+            }
+            return false
+        }
+        XCTAssertEqual(queryItems, false)
+    }
+    
+}

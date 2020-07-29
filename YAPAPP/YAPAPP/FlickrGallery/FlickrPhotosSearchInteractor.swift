@@ -21,6 +21,18 @@ class FlickrPhotosSearchInteractor {
     //2. At times its about convenience to avoid change (Why touch when its working? - A: Because we needed to add new stuff)
     //3. Announce that old method/API/etc is being migrated to new one - like Apple does
     
+    /*We can also do stuff like
+    // @available(iOS 13.0, *)
+
+    and support older version by wrapping it with
+
+    #if canImport(SwiftUI)
+     .
+     .
+     .
+    #endif
+*/
+    
     @available(*, deprecated, message: "See wiki/MigratingToSwiftUI")
     func getPhotos(forSearchText text: String, page: Int, handler completionHandler: @escaping (Result<FlickrPhotosSearchResult, Error>) -> Void) {
         URLSession.shared.request(.photosSearch(withText: text, page: page)) { result in
