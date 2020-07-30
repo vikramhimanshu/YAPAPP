@@ -16,6 +16,11 @@ struct ContentView: View {
     @ObservedObject var presenter: FlickrPhotosSearchPresenter
     
     var body: some View {
+//        FlickrAlbumView(photos: presenter.state.photos, isLoading: presenter.state.hasNext, onScrolledAtBotton: {
+//            self.presenter.getNextPageIfAvailable()
+//        }).onAppear {
+//            self.presenter.getNextPageIfAvailable()
+//        }
         FlickrPhotoListView(photos: presenter.state.gridViewPhotos, isLoading: presenter.state.hasNext, onScrolledAtBotton: {
             self.presenter.getNextPageIfAvailable()
         }).onAppear {

@@ -12,6 +12,13 @@ import Combine
 
 //This is the view that is visible to the users. Our aim should be to keep this really dumb - no calcualtions, business logic, url formations, etc etc...
 
+//We could be using some third-party library instead of trying to write our own view. Althought we have a couple challenges with using a third-party library.
+//1. Issues - When relying on is any external code, you also inherit the flaws and baggage they come with. Sometimes its hard to predict in what way those bugs can affect our code.
+//2. Performance - Other issues are testing the library, ensuring that its quality is good - memory usage, cpu usage, network, FPS etc... we can potentially save the effort of writing the code but we do have to maintain it.
+//3. Lifecycle and Sunset - If the library is actively being maintained and is backed by good open source community then its probably safe to assume that it wont dissappear overnight or any major bugs/(or security falws depending on what is it that you use) would be fixed pronto.
+//4. Is it fit for purpose and fit for use? - Other issue is that the often re-usable libraries come with a lot of additional features and options that we probably dont need. So we can always start lite and move to a third-party lib later as well. The point I'm trying to make is, keep it simple and silly.
+//5. Lastly, I did try out a few libraries instead of using the List. But I wasn't able to use them straight away. I ran into multiple issues with various libraries.
+
 struct FlickrPhotoListView: View {
     let photos: [[FlickrPhoto]]
     let isLoading: Bool
@@ -19,16 +26,16 @@ struct FlickrPhotoListView: View {
     
     var body: some View {
         List {
-            photosList
+            mockAlbumView
             if isLoading {
-                loadingIndicator
+                spinnerView
             }
         }
     }
 
-    private var photosList: some View {
+    private var mockAlbumView: some View {
         ForEach(photos, id: \.self) { array in
-            ListAlbumViewItem(photos: array).onAppear {
+            FlickrPhotoListViewCell(photos: array).onAppear {
                 if self.photos.last == array {
                     self.onScrolledAtBotton()
                 }
@@ -36,18 +43,25 @@ struct FlickrPhotoListView: View {
         }
     }
         
-    private var loadingIndicator: some View {
+    private var spinnerView: some View {
         Spinner(style: .medium) //This is how we can use some of the UIKit components
         .frame(idealWidth: .infinity, maxWidth: .infinity, alignment: .center)
     }
 }
 
-//struct FlickrPhotoAlbumView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FlickrPhotoAlbumView(presenter: FlickrPhotosSearchPresenter(interactor: FlickrPhotosSearchInteractor()))
-//    }
-//}
+struct FlickrPhotoListViewCell : View {
+    var photos: [FlickrPhoto]
+    
+    var body: some View {
+        HStack {
+            ForEach(photos) { photo in
+                PhotoCardView(photo: photo)
+            }
+        }
+    }
+}
 
+//For Illustration Only - Notice the difference between the above code and below. Its cleaner and slightly more reusable.
 struct ListAlbumViewItem : View {
     var photos: [FlickrPhoto]
     var availableWidth : CGFloat { //This calculation doesn't belong here as well

@@ -22,6 +22,7 @@
 		AF59E90D24D03F1100302F94 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59E90C24D03F1100302F94 /* NetworkRequest.swift */; };
 		AF59E90F24D0498E00302F94 /* FlickrPhotosSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59E90E24D0498E00302F94 /* FlickrPhotosSearchPresenter.swift */; };
 		AF59E91124D053A600302F94 /* FlickrPhotoAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59E91024D053A600302F94 /* FlickrPhotoAlbumView.swift */; };
+		AFDA7AC524D276FC00AC6E1C /* FlickrAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDA7AC424D276FC00AC6E1C /* FlickrAlbumView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		AF59E90C24D03F1100302F94 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		AF59E90E24D0498E00302F94 /* FlickrPhotosSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotosSearchPresenter.swift; sourceTree = "<group>"; };
 		AF59E91024D053A600302F94 /* FlickrPhotoAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoAlbumView.swift; sourceTree = "<group>"; };
+		AFDA7AC424D276FC00AC6E1C /* FlickrAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAlbumView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				AF59E90A24D03ECA00302F94 /* FlickrPhotosSearchInteractor.swift */,
 				AF59E90E24D0498E00302F94 /* FlickrPhotosSearchPresenter.swift */,
 				AF59E91024D053A600302F94 /* FlickrPhotoAlbumView.swift */,
+				AFDA7AC424D276FC00AC6E1C /* FlickrAlbumView.swift */,
 			);
 			path = FlickrGallery;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				AF59E90924D03D2800302F94 /* FlickrEndpoint.swift in Sources */,
 				AF59E90D24D03F1100302F94 /* NetworkRequest.swift in Sources */,
 				AF59E90B24D03ECA00302F94 /* FlickrPhotosSearchInteractor.swift in Sources */,
+				AFDA7AC524D276FC00AC6E1C /* FlickrAlbumView.swift in Sources */,
 				AF59E90F24D0498E00302F94 /* FlickrPhotosSearchPresenter.swift in Sources */,
 				AF59E8D624D028D100302F94 /* ContentView.swift in Sources */,
 			);

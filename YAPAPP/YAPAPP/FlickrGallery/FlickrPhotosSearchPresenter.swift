@@ -38,7 +38,7 @@ class FlickrPhotosSearchPresenter : ObservableObject {
     func getNextPageIfAvailable() {
         guard state.hasNext else { return }
         
-        interactor.getPhotos(forSearchText: "kittens", page: state.page)
+        interactor.getPhotosFromFlickr(forSearchText: "kittens", page: state.page)
         .sink(receiveCompletion: onReceive, receiveValue: onReceive)
         .store(in: &cancellable)
     }
@@ -83,6 +83,7 @@ class FlickrPhotosSearchPresenter : ObservableObject {
         return result
     }
     
+    //This is how we can perform code migrations and updates espically if the project is huge and distributed across geographies (or even otherwise).
     @available(*, deprecated, message: "Use 'func getNextPageIfAvailable()' instead. See wiki/MigratingToSwiftUI")
     func getPhotos(forSearchText text: String) {
         guard state.hasNext else { return }
